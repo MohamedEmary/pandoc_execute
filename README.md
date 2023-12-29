@@ -32,7 +32,7 @@ pandoc input.md -o output.pdf --lua-filter execute.lua
 > [!CAUTION]
 > Ensure that no file in the same folder as the markdown file shares the name you've used after the `#`. For instance, if you've used `#execute`, confirm that there isn't a file named `execute.lang` in the same folder as the markdown file. If such a file exists, the filter will delete it.
 >
-> For instance, if you use `#execute` with a Python code block like this `{.python #execute}`, the filter will delete the `execute.py` file if it exists. This occurs because the filter creates a temporary file named `execute.py`, executes it, and then removes it upon completion.
+> For instance, if you use `#execute` with a Python code block like this `{.python #execute}`, the filter will delete the `execute.py` file if it exists. This occurs because the filter creates a temporary file with the same name, executes it, and then removes it upon completion.
 
 ## Example
 
