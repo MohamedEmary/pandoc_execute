@@ -32,4 +32,4 @@ pandoc input.md -o output.pdf --lua-filter execute.lua
 
 ## Example
 
-To see an example of the filter in action, check the `example` folder.
+To see an example of the filter in action, check the [`example`](https://github.com/MohamedEmary/pandoc_execute/tree/main/example) folder.
