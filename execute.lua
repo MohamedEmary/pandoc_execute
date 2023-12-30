@@ -20,7 +20,7 @@ function CodeBlock(block)
       source_handle:write(block.text)
       source_handle:close()
     
-      local handle = io.popen(executable .. " " .. source_file .. " 2>&1") -- Capture both stdout and stderr
+      local handle = io.popen(executable .. " " .. source_file .. " 2>&1")
       local output_text = handle:read("*a")
       handle:close()
     
@@ -64,7 +64,7 @@ function CodeBlock(block)
       source_handle:close()
     end
 
-    local handle = io.popen(executable .. " " .. source_file .. " 2>&1") -- Capture both stdout and stderr
+    local handle = io.popen(executable .. " " .. source_file .. " 2>&1")
     local output_text = handle:read("*a")
     handle:close()
 
