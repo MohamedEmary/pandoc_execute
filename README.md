@@ -1,19 +1,28 @@
 # Pandoc Executable Code Block Filter
 
-This lua filter adds the exection of a code block inside a markdown file to the PDF right after the code block.
+This Pandoc Lua filter allows you to execute code blocks within a markdown file and include the output in the generated PDF, right after the corresponding code block.
 
 ## Supported Languages
 
-The filter supports these languages:
+The filter supports the following languages:
 
 1. **Python**
 2. **Javascript**
 3. **Java**
 4. **C++**
 
+## Prerequisites
+
+To use this filter, you must have the corresponding language runtime or compiler installed and accessible from your system's command line:
+
+- For Javascript, you need to have Node.js installed and the `node` command should be available.
+- For C++, Java, and Python, the `g++`, `java`, and `python` commands should be available respectively.
+
+If these commands are not recognized by your system, the filter will not work.
+
 ## Usage
 
-To use the filter, just add `#exe` between the `{}` of the code block like this:
+To use the filter, add `#exec` within the `{}` of the code block, like so:
 
 ````text
 ```{.python #exec}
@@ -21,9 +30,9 @@ print("Hello World")
 ```
 ````
 
-You can also use anything else instead of `#exe` like `#execute` or `#run` or anything else you want, but you can't leave it empty like this `{python #}`.
+You can replace `#exec` with any other tag such as `#execute` or `#run`, but it cannot be left empty like `{python #}`.
 
-Then add the filter to your pandoc filters folder and run pandoc with the `--lua-filter` option.
+Then, add the filter to your pandoc filters folder and run pandoc with the `--lua-filter` option:
 
 ```bash
 pandoc input.md -o output.pdf --lua-filter execute.lua
@@ -36,4 +45,4 @@ pandoc input.md -o output.pdf --lua-filter execute.lua
 
 ## Example
 
-To see an example of the filter in action, check the [`example`](https://github.com/MohamedEmary/pandoc_execute/tree/main/example) folder.
+To see a working example of the filter, check the [`example`](https://github.com/MohamedEmary/pandoc_execute/tree/main/example) directory.
