@@ -32,16 +32,16 @@ print("Hello World")
 
 You can replace `#exec` with any other tag such as `#execute` or `#run`, but it cannot be left empty like `{python #}`.
 
-Then, add the filter to your pandoc filters folder and run pandoc with the `--lua-filter` option:
+Then, add the filter to your pandoc filters directory and run pandoc with the `--lua-filter` option:
 
 ```bash
 pandoc input.md -o output.pdf --lua-filter execute.lua
 ```
 
 > [!CAUTION]
-> Ensure that no file in the same folder as the markdown file shares the name you've used after the `#`. For instance, if you've used `#execute`, confirm that there isn't a file named `execute.lang` in the same folder as the markdown file. If such a file exists, the filter will delete it.
+> Ensure that no file in the directory you run your pandoc command from shares the name you've used after the `#`. For instance, if you've used `#execute` in `{.python #execute}`, confirm that there isn't a file named `execute.py` in the same directory. If such a file exists, the filter will delete it. This occurs because the filter creates a temporary file with the same name, executes it, and then removes it upon completion.
 >
-> For instance, if you use `#execute` with a Python code block like this `{.python #execute}`, the filter will delete the `execute.py` file if it exists. This occurs because the filter creates a temporary file with the same name, executes it, and then removes it upon completion.
+> Additionally, ensure there is no file named `_output.txt` in the working directory. This file will also be overwritten then deleted.
 
 ## Example
 
