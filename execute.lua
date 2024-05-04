@@ -1,6 +1,6 @@
 function CodeBlock(block)
   local lang = block.classes[1]
-  if lang == "python" or lang == "cpp" or lang == "javascript" or lang == "java" then
+  if lang == "python" or lang == "cpp" or lang == "js" or lang == "java" then
     if not block.identifier or block.identifier == "" then
       return block
     end
@@ -44,7 +44,7 @@ function CodeBlock(block)
       source_handle:close()
 
       os.execute("g++ -o " .. block.identifier .. " " .. source_file)
-    elseif lang == "javascript" then
+    elseif lang == "js" then
       file_extension = "js"
       source_file = block.identifier .. "." .. file_extension
       output_file = block.identifier .. "_output.txt"
